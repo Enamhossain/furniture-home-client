@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Home from "../../Page/Home/Home";
-import Store from "../../Page/Store/Category/Store";
+import Singin from "../../Page/Sing-in/Singin";
+import SingUp from "../../Page/Singup/SingUp";
+import Store from "../../Page/Store/Store";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +18,14 @@ export const router = createBrowserRouter([
             path:'/store',
             element:<Store/>,
           },
+          {
+            path:'/singin',
+            element:<Singin/>,
+          },
+          {
+            path:'/singup',
+            element:<SingUp/>
+          }
 
         ]
 

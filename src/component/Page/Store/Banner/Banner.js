@@ -1,6 +1,7 @@
 import React from 'react';
 
 import hero from '../../../../Furniturepicture/Furniture -Home -2.png'
+
 const Banner = () => {
     return (
       <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
