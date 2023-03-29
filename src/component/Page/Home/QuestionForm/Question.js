@@ -4,32 +4,47 @@ import React from 'react';
 const Question = () => {
     return (
 
-     <div className=" grid md:grid-cols-2 items-center md:gap-6 rounded-md  shadow-sm  container mx-auto mt-20 mb-10 ">
-         <div className=' mb-20  text-3xl'>
-             <h1>Have a question?</h1>
-             <span>Left your e-mail and we will contact you soon</span>
-         </div>
-         
-<form className='p-20 '>
-  <div class="relative z-0 w-full mb-6 group text-white-100 bg-gray-200">
-  <input type="text" name="floating_first_name" id="floating_first_name" class="block p-5 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
+     <div classNameName=" grid md:grid-cols-2 items-center md:gap-6 rounded-md  shadow-sm  container mx-auto mt-20 mb-10 ">
+     <h1 className="text-center text-4xl mb-10 ">Contact US</h1>
+     <section className="text-gray-600 body-font relative">
+  <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+    <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+      <iframe width="100%" height="100%" className="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0"   ></iframe>
+      <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+        <div className="lg:w-1/2 px-6">
+          <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+          <p className="mt-1">Photo booth tattooed prism, portland taiyaki hoodie neutra typewriter</p>
+        </div>
+        <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
+          <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+        
+          <a href='/' className="text-indigo-500 leading-relaxed">example@email.com</a>
+          <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+          <p className="leading-relaxed">123-456-7890</p>
+        </div>
+      </div>
+    </div>
+    <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+      <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
+      <p className="leading-relaxed mb-5 text-gray-600">Post-ironic portland shabby chic echo park, banjo fashion axe</p>
+      <div className="relative mb-4">
+        <label for="name" className="leading-7 text-sm text-gray-600">Name</label>
+        
+        <input type="text" id="name" name="name" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+      </div>
+      <div className="relative mb-4">
+        <label for="email" className="leading-7 text-sm text-gray-600">Email</label>
+        <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+      </div>
+      <div className="relative mb-4">
+        <label for="message" className="leading-7 text-sm text-gray-600">Message</label>
+        <textarea id="message" name="message" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+      </div>
+      <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
+      <p className="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p>
+    </div>
   </div>
-  <div class="relative z-0 w-full mb-6 group bg-gray-200">
-  <input type="text" name="floating_last_name" id="floating_last_name" class="block p-5 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
-  </div>
-  <div class="relative z-0 w-full mb-6 group bg-gray-200">
-  <input type="email" name="floating_email" id="floating_email" class="block py-2.5 p-5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
-  </div>
-   <div>
-	<span className="mb-1">Message</span>
-		<textarea rows="3" className="block bg-gray-200 z-0 w-full mb-6  rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800" spellcheck="false"></textarea>
-		</div>
- 
-  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 bg-orange-400">Contact</button>
-</form>
+</section>
 
     </div>
        

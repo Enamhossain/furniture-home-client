@@ -5,7 +5,7 @@ import Footer from '../Shared/Footer/Footer';
 
 const Main = () => {
     return (
-        <div>
+        <div className='h-screen'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

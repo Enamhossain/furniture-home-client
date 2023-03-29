@@ -1,14 +1,18 @@
 import React from 'react';
+import Category from './Category/Category';
+
 import Hero from './Hero/Hero';
-import Middle from './Middle-section/Middle';
+
 import Question from './QuestionForm/Question';
+import Section from './section1/Section';
 
 
 const Home = () => {
     return (
         <div>
                <Hero></Hero>
-               <Middle></Middle>
+               <Section></Section>
+               <Category></Category>
                <Question></Question>
         </div>
     );
