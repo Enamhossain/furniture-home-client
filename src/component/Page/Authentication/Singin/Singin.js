@@ -1,43 +1,61 @@
 //import { GoogleAuthProvider } from 'firebase/auth';
 //import { GoogleAuthProvider } from 'firebase/auth';
+
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import { AuthContext } from '../Context/AuthProvider';
+import useToken from '../../../hooks/useToken';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Singin = () => {
    
-  const {register, formState: { errors } ,  handleSubmit}= useForm()
-	const {  singIn,googleSingIn } = useContext(AuthContext)
-  const [loginError,setloginError]=useState('')
-  // const googleProvider = new GoogleAuthProvider();
   
-  const handleLogin = data => {
-    console.log(data)
- setloginError('')
-singIn(data.email, data.password)
-.then(result =>{
-  const user = result.user 
-  console.log(user)
-})
- .catch(error => {
-  console.log(error.message)
-  setloginError(error.message)
-                          
-})
+	const {  singIn,googleSingIn } = useContext(AuthContext)
+  const { register, formState: { errors }, handleSubmit } = useForm();
+      const [loginError, setLoginError] = useState('');
+      const [userEmail, setUserEmail] = useState('');
+      const [token] = useToken(userEmail)
 
+      const location = useLocation();
+      const navigate = useNavigate();
 
+      const from = location.state?.from?.pathname || '/';
 
-} 
+      if (token) {
+            navigate(from, { replace: true });
+      }
 
-const handleGoogleSingin = () =>{
-googleSingIn()
-.then(result => {
-  const user = result.user
-  console.log(user)
-})
-.catch(err => console.log(err))
-}
+      const googleProvider = new GoogleAuthProvider();
+
+      const handleGoogleSingin = () => {
+            googleSingIn(googleProvider)
+                  .then(result => {
+                        const user = result.user;
+                        setUserEmail(user.email);
+                        toast.success('Welcome')
+                  })
+                  .catch(err => {
+                        setLoginError(err.message);
+                        toast.error(err.message)
+                  })
+      }
+
+      const handleLogin = data => {
+            setLoginError('');
+            singIn(data.email, data.password)
+                  .then(result => {
+                        const user = result.user;
+                        setUserEmail(data.email)
+                        toast.success('Welcome')
+                  })
+                  .catch(err => {
+                        setLoginError(err.message);
+                        toast.error(err.message)
+                  })
+      }
 
 
   
@@ -56,7 +74,7 @@ googleSingIn()
         
         <div className="space-y-1 text-sm">
 			<label for="password" className="font-semibold text-sm text-gray-600 pb-1 block"> Password</label>
-			<input type="password" {...register('password' ,{ required: "Password is required",minLength:{value:8,message:'password must be 6 characters or longer'}, pattern:{ value: /^(?=.*[0-9])(?=.*[a-z]).{8}$/,message:'password must be Stong' }  })} 
+			<input type="password" 
             name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md " />
 			{errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
 			
@@ -64,13 +82,12 @@ googleSingIn()
 		
 			{ loginError && <p className='text-red-500'>{loginError}</p> }
 		</div>
-      
-        <button type="button" className="transition mt-5 duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
-            <span className="inline-block mr-2">Login</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4 inline-block">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-        </button>
+      <div>
+
+       <input  className='btn btn-accent w-full mt-5  className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white  py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"' value="Signin" type="submit" />
+            
+      </div>
+        
          <span className='text-xl text-gray-600'>Didn't have account? Please <Link className='text-red-500' to="/singup"> Signup </Link>  </span>
       </div>
       </form>

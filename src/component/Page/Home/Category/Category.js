@@ -9,6 +9,12 @@ const Category = () => {
        .then(res => res.json())
        .then(data => setFurnitureData(data))
     },[])
+
+   
+
+   
+
+
     return (
         <div>
 
