@@ -3,7 +3,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import {toast} from 'react-hot-toast'
 import { AuthContext } from '../Context/AuthProvider';
 import useToken from '../../../hooks/useToken';
 
@@ -55,6 +55,7 @@ const SingUp = () => {
     createUser(data.email, data.password)
           .then(result => {
                 const user = result.user;
+                console.log(user)
                 toast.success('User created successfully');
                 const userInfo = {
                       displayName: data.name,

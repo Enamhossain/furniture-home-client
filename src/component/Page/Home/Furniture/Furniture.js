@@ -7,7 +7,9 @@ import FurnitureCard from './FurnitureCard';
 
 
 const Furniture = () => {
-  const [isModalOpen, setIsModalOpen] = useState(null);
+  const [Open, setOpen] = useState(null);
+  const [product,setProduct]=useState({})
+  
   const products = useLoaderData();
   return (
 
@@ -39,7 +41,8 @@ const Furniture = () => {
               products.map(product => <FurnitureCard
                 key={product._id}
                 allProducts={product}
-                setIsModalOpen={setIsModalOpen}
+                setOpen={setOpen}
+                setProduct={setProduct}
 
               ></FurnitureCard>
 
@@ -50,10 +53,11 @@ const Furniture = () => {
           </ul>
 
           {
-            isModalOpen &&
+            Open &&
             <BookingModal
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
+              Open={Open}
+              setOpen={setOpen}
+              product={product}
               
             >
             </BookingModal>

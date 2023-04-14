@@ -1,12 +1,14 @@
 import React from 'react';
 // import BookingModal from './BookingModal/BookingModal';
-import { Button } from 'antd';
 
-const FurnitureCard = ({ allProducts,setIsModalOpen  }) => {
+
+const FurnitureCard = ({ allProducts,setOpen,setProduct }) => {
   const { picture, title, resalePrice, originalPrice, location, yearsOfUse, time, seller } = allProducts
   
   const showModal = () => {
-    setIsModalOpen(true);
+    setProduct(allProducts)
+    setOpen(true);
+    
   };
   return (
     <div>

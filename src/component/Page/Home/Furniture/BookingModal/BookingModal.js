@@ -1,19 +1,28 @@
-//import { Input } from "@material-tailwind/react";
-import { Modal } from "antd";
+import { Fragment,  } from "react";
+import {
+  
+  Dialog,
+  DialogHeader,
+  Button
+ 
+} from "@material-tailwind/react";
+
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../Authentication/Context/AuthProvider';
+import { toast } from "react-hot-toast";
 
-import Input from "../BookingModal/Input"
-const BookingModal = ({setIsModalOpen,isModalOpen}) => {
-  const {title}=isModalOpen
+
+const BookingModal = ({ Open, setOpen, product }) => {
+  const { title, originalPrice } = product
+  
 
 
   const { user } = useContext(AuthContext);
-  
+
   const handleBooking = event => {
     event.preventDefault();
     const form = event.target;
-    const productName = form.name.value;
+    const productName = form.product.value;
     const productPrice = form.price.value;
     const name = form.name.value;
     const email = form.email.value;
@@ -21,48 +30,76 @@ const BookingModal = ({setIsModalOpen,isModalOpen}) => {
     const location = form.location.value;
 
     const booking = {
-          title: productName,
+          product: productName,
           price: productPrice,
           name,
           email,
           phone,
           location
     }
- 
+
+
+
+    fetch('http://localhost:4000/booking',{
+
+     method:'POST',
+     headers:{
+      'content-type':'application/json'
+     },
+     body:JSON.stringify(booking)
+
+    })
+    .then(res => res.json())
+    .then(data => {
+     
+      if (data.acknowledged) {
+          setOpen(null)
+          toast.success('Booking confirmed');
+          
+      }
+      else{
+         toast.error(data.message)
+      }
+     
+  })
+
   }
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
+  const handleOpen = () => setOpen(!Open);
+  return (
 
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-    return (
-     
-<>
-     
-      <Modal className="p-7" title="Product Details" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-      <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
-       {/* <div className="p-5">
-       <Input size="lg" label="Product-Name"  />
-       <br/>
-      <Input size="lg" label="Product-Price" defaultValue={originalPrice} />
-      <br/>
-      <Input size="lg" label="Input Large" />
-      <br/>
-      <Input size="lg" label="Phone Number" />
-      <br/>
-      <Input size="lg" label="Metting Location" />
+    <>
+      <Fragment>
+        
+        <Dialog open={Open} handler={handleOpen}>
+          <DialogHeader>Product Booking details</DialogHeader>
 
-       </div> */}
-{       
-       <input name='product' type="text" placeholder="Product Name" defaultValue={title} disabled className="input input-bordered w-full" /> }
+          <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10 p-10'>
+                                    <input name='product' type="text" placeholder="Product Name" defaultValue={title} disabled className="input input-bordered w-full" />
+                                    <input name='price' type="text" placeholder="Product Price" defaultValue={originalPrice} disabled className="input input-bordered w-full" />
+                                    <input name='name' type="text" placeholder="Full Name" defaultValue={user?.displayName} disabled className="input input-bordered w-full" />
+                                    <input name='email' type="email" placeholder="Email" defaultValue={user?.email} disabled className="input input-bordered w-full" />
+                                    <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered w-full" />
+                                    <input name='location' type="text" placeholder="Meeting Location" className="input input-bordered w-full" />
+                                    <br />
+                                    <Button color="green"  onSubmit={handleOpen}   >
+                                    <input className=' w-full' type="submit" value="Submit" />
 
-       </form>
-      </Modal>
+
+                                    </Button>
+                              </form>
+
+                              
+
+        
+        </Dialog>
+      </Fragment>
+
+
+
+
     </>
-       
-    );
+
+  );
 };
 
 export default BookingModal;

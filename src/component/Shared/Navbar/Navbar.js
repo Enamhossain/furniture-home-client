@@ -12,7 +12,7 @@ const Navbar = () => {
   }
   const menuItems = <React.Fragment>
     <Link className="text-gray-600" to='/'>Home</Link>
-    <Link className="text-gray-600" to='/shop'>Blog</Link>
+    <Link className="text-gray-600" to='/Blog'>Blog</Link>
 
     {user?.uid ?
       <>
@@ -22,8 +22,7 @@ const Navbar = () => {
 
       :
 
-      <a href="/"> <Link to="/singin"
-        className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white">
+      <a href="/"> <Link to="/singin" className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white">
         Log in
       </Link></a>}
   </React.Fragment>
@@ -45,13 +44,13 @@ const Navbar = () => {
                                     {menuItems}
                                     {
                                           user?.uid &&
-                                          <div className='flex items-center lg:mr-6'>
+                                          <div className='flex lg:mr-6'>
                                                 <div className="avatar">
                                                       <div className="w-6 rounded-full md:w-8 lg:w-12">
-                                                            <img src={user?.photoURL} alt='' />
+                                                            <img className="inline-block h-10 w-10 rounded-full ring-2 ring-white" src={user?.photoURL} alt='' />
                                                       </div>
                                                 </div>
-                                                <p className='ml-2'>{user?.displayName}</p>
+                                                <p className='m-0 p-0'>{user?.displayName}</p>
                                           </div>
                                     }
 

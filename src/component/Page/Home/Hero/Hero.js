@@ -1,9 +1,7 @@
 import React from 'react';
 
-
-import img from '../../../../assest/img-1.jpg'
 import img2 from '../../../../assest/img-2.jpg'
-import img3 from '../../../../assest/img-3.jpg'
+
 
 
 
