@@ -3,7 +3,7 @@ import CategoryCard from './CategoryCard';
 
 const Category = () => {
     const [ data,setFurnitureData ]= useState([])
-        console.log(data)
+        
     useEffect(() => {
        fetch('http://localhost:4000/categories')
        .then(res => res.json())

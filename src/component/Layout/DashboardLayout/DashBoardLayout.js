@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../../Shared/Navbar/Navbar';
 import  '../DashboardLayout/Dashboard.css'
 
+import { Link,Outlet } from 'react-router-dom';
+import { AuthContext } from '../../Page/Authentication/Context/AuthProvider';
+import useSeller from '../../hooks/useSeller';
+import useAdmin from '../../hooks/useAdmin';
+
 const DashBoardLayout = () => {
 
-
+    const { user } = useContext(AuthContext);
+    const [isAdmin] = useAdmin(user?.email);
+    const [isSeller] = useSeller(user?.email);
 
 
     return (
@@ -20,29 +27,90 @@ const DashBoardLayout = () => {
             </h1>
             <nav>
                 <ul className="select-none">
+                <li>
+                        <label  for="nav-toggle-sleep" className="nav-item nav-item">
+                            
+                            <span className="nav-item-name">  <Link to="/dashboard/myorders">My order</Link></span>
+                        </label>
+                    </li>
+
+                {
+
+                  isAdmin  && <>
+                  
+                   
                     <li>
-                        <a href="/" className="nav-item nav-item-active">
-                            <span className="nav-item-icon">🏠</span>
-                            <span className="nav-item-name">My order</span>
-                        </a>
+                        <label for="nav-toggle-sleep" className="nav-item cursor-pointer">
+                            
+                            <span className="nav-item-name"> <Link to="/dashboard/allusers"> All Users</Link>  </span>
+                        </label>
+                    
                     </li>
                     <li>
                         <label for="nav-toggle-sleep" className="nav-item cursor-pointer">
-                            <span className="nav-item-icon">🥱</span>
-                            <span className="nav-item-name">Sleepy</span>
+                            
+                            <span className="nav-item-name">    <Link to="/dashboard/allseller"> All Seller</Link> </span>
                         </label>
-                        <input type="checkbox" name="" className="subnav-toggle" id="nav-toggle-sleep"/>
-                        <span className="hidden bg-gray-100">
-                            <a href="/" className="nav-sub-item">Get Ready</a>
-                            <a href="/" className="nav-sub-item">After sleep</a>
-                        </span>
+                    
                     </li>
+                    <li>
+                        <label for="nav-toggle-sleep" className="nav-item cursor-pointer">
+                            
+                            <span className="nav-item-name"><Link to="/dashboard/allbuyer"> All Buyers </Link> </span>
+                        </label>
+                    
+                    </li>
+
+                    <li>
+                        <label for="nav-toggle-sleep" className="nav-item cursor-pointer">
+                            
+                            <span className="nav-item-name"> <Link to="/dashboard/myproduct">  My Product</Link>   </span>
+                        </label>
+                    
+                    </li>
+
+                    <li>
+                        <label for="nav-toggle-sleep" className="nav-item cursor-pointer">
+                            
+                            <span className="nav-item-name">      <Link to="/dashboard/addproduct">  Add Product </Link>   </span>
+                        </label>
+                    
+                    </li>
+                  
+                  </>
+
+                }
+
+
+                {
+
+                isSeller && <>
+                
+                <li>
+                        <label for="nav-toggle-sleep" className="nav-item cursor-pointer">
+                            
+                            <span className="nav-item-name">  <Link to="/dashboard/myproduct">  My Product</Link>   </span>
+                        </label>
+                    
+                    </li>
+                    <li>
+                        <label for="nav-toggle-sleep" className="nav-item cursor-pointer">
+                            
+                            <span className="nav-item-name"><Link to="/dashboard/addproduct">  Add Product </Link> </span>
+                        </label>
+                    
+                    </li>
+                </>
+                   
+                }
+
+                   
                 </ul>
             </nav>
             </div>
         </aside>
         <main className="content">
-           
+           <Outlet></Outlet>
                
         </main>
     </div>

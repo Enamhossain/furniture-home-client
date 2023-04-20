@@ -6,6 +6,17 @@ import Furniture from "../../Page/Home/Furniture/Furniture";
 import Home from "../../Page/Home/Home";
 import Blog from "../../Page/Home/Blog/Blog";
 import DashBoardLayout from "../../Layout/DashboardLayout/DashBoardLayout";
+import DisplayError from "../../Shared/DisplayError/DisplayError";
+import Dashboard from "../../Page/Dashboard/Dashboard";
+import AllUsers from "../../Page/Dashboard/AllUsers";
+import AlllSeller from "../../Page/Dashboard/AlllSeller";
+import AllBuyers from "../../Page/Dashboard/AllBuyers";
+import AddaProduct from "../../Page/Dashboard/AddaProduct";
+import MyProduct from "../../Page/Dashboard/MyProduct";
+import MyOrder from "../../Page/Dashboard/MyOrder";
+import Adminroute from "../AdminRoute/Adminroute";
+import Privateroute from "../Privateroute/Privateroute";
+
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +41,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/category/:id',
-        element: <Furniture />,
+        element: <Privateroute> <Furniture /> </Privateroute> ,
         loader: ({ params }) => fetch(`http://localhost:4000/products/${params.id}`)
       }
 
@@ -46,10 +57,38 @@ export const router = createBrowserRouter([
 
   {
     path:'/dashboard',
-    element:<DashBoardLayout/>,
-    children:[
-
+    element: <DashBoardLayout/> ,
+    errorElement: <DisplayError></DisplayError>,
+    children: [
+          {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+          },
+          {
+                path: '/dashboard/allusers',
+                element: <Adminroute> <AllUsers></AllUsers>  </Adminroute> 
+          },
+          {
+                path: '/dashboard/allseller',
+                element: <AlllSeller></AlllSeller>
+          },
+          {
+                path: '/dashboard/allbuyer',
+                element:<Adminroute> <AllBuyers></AllBuyers>  </Adminroute> 
+          },
+          {
+                path: '/dashboard/addproduct',
+                element: <AddaProduct></AddaProduct>
+          },
+          {
+                path: '/dashboard/myproduct',
+                element: <MyProduct></MyProduct>
+          },
+          {
+                path: '/dashboard/myorders',
+                element: <MyOrder></MyOrder>
+          },
     ]
-  }
+}
 
 ])
