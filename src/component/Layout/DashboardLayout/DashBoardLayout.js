@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Navbar from '../../Shared/Navbar/Navbar';
+import Navber from '../../Shared/Navbar/Navber';
 import  '../DashboardLayout/Dashboard.css'
 
 import { Link,Outlet } from 'react-router-dom';
@@ -16,7 +16,7 @@ const DashBoardLayout = () => {
 
     return (
         <div>
-           <Navbar></Navbar>
+           <Navber></Navber>
            <div className="flex justify-end h-full">
         <input className="hidden" aria-hidden="true" checked="checked" type="checkbox" name="" id="sidebar-toggle"/>
         <aside className="sidebar hidden md:block">

@@ -56,7 +56,7 @@ const AllUsers = () => {
       <div className='p-10'>
       <h2 className='text-3xl text-center underline underline-offset-8 font-bold'>All User</h2>
 
-      <div className="overflow-x-auto mt-3 p-10 bg-neutral rounded-2xl">
+      <div className="overflow-x-auto mt-3 p-10 bg-white rounded-2xl">
             <table className="table w-full">
                   <thead>
                         <tr>

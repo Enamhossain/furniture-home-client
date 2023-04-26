@@ -1,12 +1,12 @@
 import React from 'react';
-import Navbar from '../Shared/Navbar/Navbar';
+import Navber from '../Shared/Navbar/Navber';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
 
 const Main = () => {
     return (
         <div className='h-screen'>
-            <Navbar></Navbar>
+            <Navber></Navber>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

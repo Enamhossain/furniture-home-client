@@ -48,7 +48,7 @@ const AlllSeller = () => {
 
     return (
         <div>
-           <div className="overflow-x-auto mt-3 p-10 bg-neutral rounded-2xl">
+           <div className="overflow-x-auto mt-3 p-10 bg-white rounded-2xl">
             <table className="table w-full">
                   <thead>
                         <tr>

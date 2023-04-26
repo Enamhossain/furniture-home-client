@@ -19,7 +19,7 @@ const Category = () => {
         <div>
 
         <h1 className='text-center text-2xl '>Furniture Category</h1>
-              <div className="flex min-h-screen items-center justify-center bg-neutral-800"> 
+              <div className="flex min-h-screen items-center justify-center "> 
                   
               <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3'>
                   {
