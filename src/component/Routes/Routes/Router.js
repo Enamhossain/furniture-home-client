@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       {
         path: '/category/:id',
         element: <Privateroute> <Furniture /> </Privateroute> ,
-        loader: ({ params }) => fetch(`http://localhost:4000/products/${params.id}`)
+        loader: ({ params }) => fetch(`https://furnitur-home-server.vercel.app/products/${params.id}`)
       }
 
 

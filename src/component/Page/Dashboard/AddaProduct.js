@@ -16,7 +16,7 @@ const AddaProduct = () => {
       const [categories, setCategories] = useState([])
       console.log(categories)
       useEffect(() => {
-            axios.get('http://localhost:4000/categories')
+            axios.get('https://furnitur-home-server.vercel.app/categories')
                   .then(res => setCategories(res.data));
       }, [])
 
@@ -45,7 +45,7 @@ const AddaProduct = () => {
 
             }
 
-            fetch('http://localhost:4000/products', {
+            fetch('https://furnitur-home-server.vercel.app/products', {
                   method: 'POST',
                   headers: {
                         'content-type': 'application/json',

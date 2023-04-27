@@ -7,14 +7,14 @@ const AllBuyers = () => {
     const { data: allBuyers = [], refetch } = useQuery({
         queryKey: ['allBuyers'],
         queryFn: async () => {
-              const res = await fetch('http://localhost:4000/users/buyers');
+              const res = await fetch('https://furnitur-home-server.vercel.app/users/buyers');
               const data = await res.json();
               return data;
         }
   })
 
   const handleDeleteUser = id => {
-        fetch(`http://localhost:4000/users/buyers/${id}`, {
+        fetch(`https://furnitur-home-server.vercel.app/users/buyers/${id}`, {
               method: 'DELETE',
               headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

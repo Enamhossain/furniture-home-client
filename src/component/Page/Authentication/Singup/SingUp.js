@@ -76,7 +76,7 @@ const SingUp = () => {
 
 const saveUser = (name, email, photo, role) => {
     const user = { name, email, photo, role };
-    fetch('http://localhost:4000/users', {
+    fetch('https://furnitur-home-server.vercel.app/users', {
           method: 'POST',
           headers: {
                 'content-type': 'application/json'

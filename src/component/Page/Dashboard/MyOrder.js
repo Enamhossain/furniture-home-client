@@ -11,7 +11,7 @@ const MyOrder = () => {
     const { data: myProducts = [], refetch } = useQuery({
         queryKey: ['allSellers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:4000/booking?email=${user?.email}`);
+            const res = await fetch(`https://furnitur-home-server.vercel.app/booking?email=${user?.email}`);
             const data = await res.json();
             return data;
           
@@ -20,7 +20,7 @@ const MyOrder = () => {
 
 
     const handleDeleteProduct = id => {
-        fetch(`http://localhost:4000/booking/${id}`, {
+        fetch(`https://furnitur-home-server.vercel.app/booking/${id}`, {
               method: 'DELETE',
         })
               .then(res => res.json())

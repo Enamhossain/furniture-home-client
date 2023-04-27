@@ -8,14 +8,14 @@ const AlllSeller = () => {
     const { data: allSellers = [], refetch } = useQuery({
         queryKey: ['allSellers'],
         queryFn: async () => {
-              const res = await fetch('http://localhost:4000/users/sellers');
+              const res = await fetch('https://furnitur-home-server.vercel.app/users/sellers');
               const data = await res.json();
               return data;
         }
   })
 
   const handleVerifySeller = id => {
-        fetch(`http://localhost:4000/users/sellers/${id}`, {
+        fetch(`https://furnitur-home-server.vercel.app/users/sellers/${id}`, {
               method: 'PATCH',
               headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +31,7 @@ const AlllSeller = () => {
   };
 
   const handleDeleteUser = id => {
-        fetch(`http://localhost:4000/users/sellers/${id}`, {
+        fetch(`https://furnitur-home-server.vercel.app/users/sellers/${id}`, {
               method: 'DELETE',
               headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -25,13 +25,13 @@ const Navber = () => {
 
     {user?.uid ?
       <>
-        <Link className="text-gray-600 m-4" to='/dashboard'>Dashboard</Link>
+        <Link className="text-gray-600 m-4 text-lg " to='/dashboard'>Dashboard</Link>
         <button className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white" onClick={handleSingOut}>SingOut</button>
       </>
 
       :
 
-      <a href="/"> <Link to="/singin" className="rounded-lg bg-blue-600 px-5 py-2 text-sm font-medium text-white m-4">
+      <a href="/"> <Link to="/singin" className="rounded-lg bg-blue-600 px-5 py-2 text-sm  text-white mt-4 ">
         Log in
       </Link></a>}
   </React.Fragment>
@@ -53,7 +53,7 @@ return (
                                 user?.uid &&
                                 <div className='flex items-center lg:mr-6'>
                                       <div className="avatar">
-                                            <div className="w-6 rounded-full md:w-8 lg:w-12 mx-2">
+                                            <div className="w-6 rounded-full md:w-8 ">
                                                   <img src={user?.photoURL} alt='' />
                                             </div>
                                       </div>

@@ -40,7 +40,7 @@ const BookingModal = ({ Open, setOpen, product }) => {
 
 
 
-    fetch('http://localhost:4000/booking',{
+    fetch('https://furnitur-home-server.vercel.app/booking',{
 
      method:'POST',
      headers:{

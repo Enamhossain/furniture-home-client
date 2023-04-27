@@ -5,7 +5,7 @@ const Category = () => {
     const [ data,setFurnitureData ]= useState([])
         
     useEffect(() => {
-       fetch('http://localhost:4000/categories')
+       fetch('https://furnitur-home-server.vercel.app/categories')
        .then(res => res.json())
        .then(data => setFurnitureData(data))
     },[])
