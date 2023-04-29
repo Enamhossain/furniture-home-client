@@ -19,8 +19,8 @@ const DashBoardLayout = () => {
            <Navber></Navber>
            <div className="flex justify-end h-full">
         <input className="hidden" aria-hidden="true" checked="checked" type="checkbox" name="" id="sidebar-toggle"/>
-        <aside className="sidebar hidden md:block">
-            <div className="bg-white">
+        <aside className="sidebar">
+            <div className="">
             <h1 className="brand">
                 <span className="brand-icon">😊</span>
                 <span className="brand-name">Dashboard</span>
