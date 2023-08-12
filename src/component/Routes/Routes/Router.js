@@ -14,7 +14,6 @@ import AllBuyers from "../../Page/Dashboard/AllBuyers";
 import AddaProduct from "../../Page/Dashboard/AddaProduct";
 import MyProduct from "../../Page/Dashboard/MyProduct";
 import MyOrder from "../../Page/Dashboard/MyOrder";
-import Adminroute from "../AdminRoute/Adminroute";
 import Privateroute from "../Privateroute/Privateroute";
 
 
