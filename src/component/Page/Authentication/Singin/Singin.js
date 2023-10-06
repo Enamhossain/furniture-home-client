@@ -71,7 +71,7 @@ const Singin = () => {
             <form onSubmit={handleSubmit(handleLogin)} >
               <div className="px-5 py-8">
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">E-mail</label>
-                <input type="text" {...register("email", { required: "Email Address is required" })} className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+                <input placeholder='Email' type="text" {...register("email", { required: "Email Address is required" })} className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
                 {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
 
                 <div className="space-y-1 text-sm">

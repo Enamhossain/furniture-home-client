@@ -1,16 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import cover from '../../../../Furniturepicture/Cover pic.png'
 import BookingModal from './BookingModal/BookingModal';
 import FurnitureCard from './FurnitureCard';
+import Loader from '../../../Shared/Loading/Loader';
 
 
 
 const Furniture = () => {
   const [Open, setOpen] = useState(null);
   const [product,setProduct]=useState({})
+  const [isLoading, setIsLoading] = useState(true);
+  
   
   const products = useLoaderData();
+
+
+
+  useEffect(() => {
+    // Simulate data loading with a setTimeout for demonstration
+    setTimeout(() => {
+      // Fetch your data here (e.g., from an API)
+      // Once the data is loaded, set isLoading to false
+      // and update the data state
+      setIsLoading(false);
+    }, 1000); // Simulated 2 seconds of loading
+  }, [products]);
   return (
 
     <div className="text-gray-600 body-font mx-auto">
@@ -34,9 +49,12 @@ const Furniture = () => {
               Showing <span> 4 </span> of 40
             </p>
           </div>
+          {isLoading ? (
+        <Loader />
+      ) : (
 
           <ul className="mt-4 grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
-
+  
             {
               products.map(product => <FurnitureCard
                 key={product._id}
@@ -51,7 +69,7 @@ const Furniture = () => {
 
 
           </ul>
-
+      )}
           {
             Open &&
             <BookingModal

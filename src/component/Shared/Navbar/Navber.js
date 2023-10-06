@@ -42,7 +42,7 @@ const Navber = () => {
 
       :
 
-      <a href="/"> <Link to="/singin" className="rounded-lg bg-blue-600 text-sm py-7 px-3 inline-block text-white mt-4 ">
+      <a href="/"> <Link to="/singin" className="rounded-lg bg-blue-600 text-sm py-3 px-3 inline-block text-white  ">
         Log in
       </Link></a> }
   </React.Fragment>

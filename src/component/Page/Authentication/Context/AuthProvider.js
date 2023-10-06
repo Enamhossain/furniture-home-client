@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
         updateUser,
         googleSingIn,
         user,
-        loading
+        loading,
 
     }
     return (
